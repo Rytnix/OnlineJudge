@@ -1,9 +1,8 @@
 # Online Judge Project (MERN Stack)
 
 ![image](https://drive.google.com/u/3/uc?id=1IshDC3Mi6SFimnnKAXs8gkQekcNK12sJ&export=download)
-https://drive.google.com/u/3/uc?id=1IshDC3Mi6SFimnnKAXs8gkQekcNK12sJ&export=download
 
-This is a comprehensive Online Judge project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The project provides a platform for hosting coding competitions, practice coding problems, and evaluate submissions. It is designed to facilitate the evaluation of programming skills and improve problem-solving capabilities.
+This is a comprehensive Online Judge project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The project provides a platform for hosting coding competitions, practicing coding problems, and evaluating submissions. It is designed to facilitate the evaluation of programming skills and improve problem-solving capabilities.
 
 ## Features
 
