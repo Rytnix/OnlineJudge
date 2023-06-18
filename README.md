@@ -27,7 +27,7 @@ This is a comprehensive Online Judge project built using the MERN (MongoDB, Expr
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/online-judge.git
+   git clone https://github.com/Rytnix/OnlineJudge.git
    ```
 2. Navigate to the project directory:
 
