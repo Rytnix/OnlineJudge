@@ -11,8 +11,10 @@ export const Register = (props) => {
     console.log(username);
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="auth-form-container">
+      <h1>ONLINE JUDGE</h1>
+      <h2>REGISTER</h2>
+      <form onSubmit={handleSubmit} className="registerform">
         <label htmlFor="Username">Username</label>
         <input
           type="text"
@@ -49,11 +51,13 @@ export const Register = (props) => {
           value={pass}
           onChange={(e) => setPass(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button className="submitbtn" type="submit">
+          Register
+        </button>
       </form>
-      <button onClick={() => props.onFormSwitch("login")}>
+      <button className="link-btn" onClick={() => props.onFormSwitch("login")}>
         Already have an account? Login Here!!
       </button>
-    </>
+    </div>
   );
 };
