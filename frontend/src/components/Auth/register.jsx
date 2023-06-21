@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import logo from "../../images/googlelogo.png";
 
-import logo from "../googlelogo.png";
+import "./Auth-style.css";
+
 export const Register = (props) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -60,7 +62,7 @@ export const Register = (props) => {
         </button>
       </form>
       <button onClick={googleAuth} className="submitbtn2" type="submit">
-        <img className="googleimg" src={logo}></img>
+        <img className="googleimg" src={logo} alt="google logo"></img>
         Google
       </button>
       <button className="link-btn" onClick={() => props.onFormSwitch("login")}>

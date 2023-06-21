@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import logo from "../googlelogo.png";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import logo from "../../images/googlelogo.png";
+import "./Auth-style.css";
 
 export const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -16,8 +15,8 @@ export const Login = (props) => {
   };
   return (
     <div className="auth-form-container">
-      <h1>ONLINE JUDGE</h1>
-      <h2>LOGIN</h2>
+      <h1 className="auth-h1">ONLINE JUDGE</h1>
+      <h2 className="auth-h2">LOGIN</h2>
       <form onSubmit={handleSubmit} className="loginform">
         <label htmlFor="Username">Username</label>
         <input
@@ -43,7 +42,7 @@ export const Login = (props) => {
         </button>
       </form>
       <button onClick={googleAuth} className="submitbtn2" type="submit">
-        <img className="googleimg" src={logo}></img>
+        <img className="googleimg" src={logo} alt="google icon"></img>
         Google
       </button>
       <button

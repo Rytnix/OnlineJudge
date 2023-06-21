@@ -5,9 +5,10 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const passport = require("passport");
-const session = require("express-session");
 const cookieSession = require("cookie-session");
+const compRoute = require("./routes/compilerRoutes");
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cookieSession({
@@ -34,6 +35,7 @@ app.use(
 );
 
 app.use("/api/oj", userRoute);
+app.use("/api", compRoute);
 mongoose.Promise = global.Promise;
 mongoose
   .connect(process.env.MONGO_URI)

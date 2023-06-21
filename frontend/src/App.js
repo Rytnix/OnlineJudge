@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Login } from "./components/login";
-import { Register } from "./components/register";
+import { Login } from "./components/Auth/login";
+import { Register } from "./components/Auth/register";
 import Home from "./Home";
 import axios from "axios";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar/index";
+import Navbar from "./components/Navbar/navbar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,6 +25,7 @@ function App() {
   useEffect(() => {
     getUser();
   }, []);
+
   return (
     <div className="App">
       {/* {currform === "login" ? (
@@ -33,6 +34,7 @@ function App() {
         <Register onFormSwitch={toggleForm} />
       )} */}
       <Routes>
+        <Route exact path="/homepage" element={<Navbar />} />
         <Route
           exact
           path="/"
