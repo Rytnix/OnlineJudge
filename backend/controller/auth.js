@@ -9,9 +9,10 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5000/api/oj/auth/google/callback",
+      callbackURL: "http://localhost:5000/api/oj/google/callback",
       passReqToCallback: true,
     },
+
     async function (request, accessToken, refreshToken, profile, done) {
       const defaultUser = {
         fullName: profile.name.givenName + " " + profile.name.familyName,

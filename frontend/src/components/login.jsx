@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../googlelogo.png";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -10,16 +11,8 @@ export const Login = (props) => {
     e.preventDefault();
     console.log(username);
   };
-  const helperfunc = async () => {
-    console.log("button clicked");
-    await axios
-      .get("http://localhost:5000/api/oj/login/auth/google")
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+  const googleAuth = async () => {
+    window.open("http://localhost:5000/api/oj/google", "_self");
   };
   return (
     <div className="auth-form-container">
@@ -49,7 +42,7 @@ export const Login = (props) => {
           Login
         </button>
       </form>
-      <button onClick={helperfunc} className="submitbtn2" type="submit">
+      <button onClick={googleAuth} className="submitbtn2" type="submit">
         <img className="googleimg" src={logo}></img>
         Google
       </button>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import logo from "../googlelogo.png";
 export const Register = (props) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -9,6 +10,9 @@ export const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username);
+  };
+  const googleAuth = async () => {
+    window.open("http://localhost:5000/api/oj/google", "_self");
   };
   return (
     <div className="auth-form-container">
@@ -55,6 +59,10 @@ export const Register = (props) => {
           Register
         </button>
       </form>
+      <button onClick={googleAuth} className="submitbtn2" type="submit">
+        <img className="googleimg" src={logo}></img>
+        Google
+      </button>
       <button className="link-btn" onClick={() => props.onFormSwitch("login")}>
         Already have an account? Login Here!!
       </button>
