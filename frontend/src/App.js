@@ -34,11 +34,15 @@ function App() {
         <Register onFormSwitch={toggleForm} />
       )} */}
       <Routes>
-        <Route exact path="/homepage" element={<Navbar />} />
+        <Route
+          exact
+          path="/homepage"
+          element={user ? <Navbar user={user} /> : <Navigate to="/login" />}
+        />
         <Route
           exact
           path="/"
-          element={user ? <Home user={user} /> : <Navigate to="/login" />}
+          element={user ? <Navbar user={user} /> : <Navigate to="/login" />}
         />
         <Route
           exact

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-
+import Tabs from "../Home/Tab";
 function NavBar() {
   const [click, setClick] = useState(false);
 
@@ -46,18 +46,18 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Blog
+                Login
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 exact
-                to="/contact"
+                to="/logout"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Contact Us
+                Logout
               </NavLink>
             </li>
           </ul>
@@ -66,6 +66,10 @@ function NavBar() {
           </div>
         </div>
       </nav>
+
+      <div>
+        <Tabs />
+      </div>
     </>
   );
 }
