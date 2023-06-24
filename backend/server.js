@@ -7,9 +7,9 @@ const cors = require("cors");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 const compRoute = require("./routes/compilerRoutes");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(
   cookieSession({
     name: "session",
