@@ -71,6 +71,7 @@ function Tabs() {
                 ((9 - 4) - 2) = 8. Example 2: Input: prices = [1,3,7,5,10,3],
                 fee = 3 Output: 6 Constraints:
               </p>
+              <button>Submit </button>
             </div>
             <div class="article-2">
               <h3>title2</h3>

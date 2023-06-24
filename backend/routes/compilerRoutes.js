@@ -39,13 +39,13 @@ router.post("/run", async (req, res) => {
     fs.readFileSync(testcasepath, "utf-8")
   )
     res.status(200).send({
-      filePath: `$j{filePath}`,
+      filePath: `${filePath}`,
       Result: "TEST CASE PASSED",
       Output: `${result.stdout}`,
     });
   else
     res.status(400).send({
-      filePath: `$j{filePath}`,
+      filePath: `${filePath}`,
       Result: "TEST CASE FAILED",
       Output: `${result.stdout}`,
     });

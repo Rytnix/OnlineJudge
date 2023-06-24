@@ -6,6 +6,7 @@ function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
   return (
     <>
       <nav className="navbar">
@@ -52,7 +53,7 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/logout"
+                to="/api/oj/logout"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}

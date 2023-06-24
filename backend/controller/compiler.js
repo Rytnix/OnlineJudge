@@ -33,7 +33,7 @@ const runCpp = async (path, { stdin }) => {
   // compiling...
   try {
     if (osCompile.exe.indexOf(osType) >= 0)
-      await exec(`g++ ${path} -o assets/code/cpp.exe`);
+      await exec(`g++ ${path} -o /controller/Code/cpp.exe`);
     else if (osCompile.out.indexOf(osType) >= 0)
       await exec(`g++ ${path} -o assets/code/cpp.out`);
   } catch (err) {
@@ -41,16 +41,16 @@ const runCpp = async (path, { stdin }) => {
   }
 
   // Writing stdin into input file
-  await fs.writeFileAsync("assets/code/input.txt", stdin);
+  await fs.writeFileAsync("controller/Code/input.txt", stdin);
 
   // Running...
   let result = null;
 
   const startTime = new Date();
   if (osCompile.exe.indexOf(osType) >= 0)
-    result = await exec("cd assets/code && cpp.exe < input.txt");
+    result = await exec("cd controller/Code && cpp.exe < input.txt");
   else if (osCompile.out.indexOf(osType) >= 0)
-    result = await exec("cd assets/code && ./cpp.out < input.txt");
+    result = await exec("cd controller/Code  && ./cpp.out < input.txt");
   const endTime = new Date();
 
   const runTime = endTime.getTime() - startTime.getTime();
