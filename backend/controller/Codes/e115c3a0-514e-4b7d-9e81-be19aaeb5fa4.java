@@ -12,17 +12,17 @@ public class ArraySum {
 
         // Inputting the array elements
         for (int i = 0; i < size; i++) {
-            array[i] = scanner.nextInt();
+            array[i] = scanner.nextInt()
         }
 
         int sum = 0;
 
         // Calculating the sum of array elements
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size-1; i++) {
             sum += array[i];
         }
 
-        System.out.println(sum);
+        System.out.println( sum);
 
         scanner.close();
     }

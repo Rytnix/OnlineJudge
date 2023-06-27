@@ -8,8 +8,6 @@ public class ArraySum {
 
         int[] array = new int[size];
 
-       
-
         // Inputting the array elements
         for (int i = 0; i < size; i++) {
             array[i] = scanner.nextInt();
@@ -22,7 +20,7 @@ public class ArraySum {
             sum += array[i];
         }
 
-        System.out.println(sum);
+        System.out.println( sum);
 
         scanner.close();
     }

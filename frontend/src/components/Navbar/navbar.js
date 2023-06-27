@@ -68,9 +68,7 @@ function NavBar() {
         </div>
       </nav>
 
-      <div>
-        <Tabs />
-      </div>
+      <div></div>
     </>
   );
 }

@@ -1,5 +1,5 @@
 const express = require("express");
-
+const os = require("os");
 const { errorToJSON, exec } = require("../routes/global");
 const fs = require("fs");
 const path = require("path");
@@ -19,7 +19,6 @@ const runJava = async (filepath, fileName, stdin) => {
     "cd " + inputDir + " && java " + fileName + " < input.txt"
   );
   const endTime = new Date();
-
   const runTime = endTime.getTime() - startTime.getTime();
   result.manualrunTime = runTime;
   return result;
@@ -27,45 +26,55 @@ const runJava = async (filepath, fileName, stdin) => {
 
 const outPath = "../";
 
-const runCpp = async (path, { stdin }) => {
+const osCompile = {
+  exe: ["windows_nt"],
+  out: ["darwin", "linux"],
+};
+const runCpp = async (path, filename, stdin) => {
   const osType = os.type().toLowerCase();
-
+  console.log(osType);
   // compiling...
   try {
     if (osCompile.exe.indexOf(osType) >= 0)
-      await exec(`g++ ${path} -o /controller/Code/cpp.exe`);
+      await exec(`g++ ${path} -o controller/Codes/cpp.exe`);
     else if (osCompile.out.indexOf(osType) >= 0)
-      await exec(`g++ ${path} -o assets/code/cpp.out`);
+      await exec(`g++ ${path} -o controller/Codes/cpp.out`);
   } catch (err) {
-    return errorToJSON(err);
+    return err;
   }
 
   // Writing stdin into input file
-  await fs.writeFileAsync("controller/Code/input.txt", stdin);
-
+  await fs.writeFileSync("controller/Codes/input.txt", stdin);
+  console.log("hello");
   // Running...
   let result = null;
 
   const startTime = new Date();
   if (osCompile.exe.indexOf(osType) >= 0)
-    result = await exec("cd controller/Code && cpp.exe < input.txt");
+    result = await exec("cd controller/Codes && cpp.exe < input.txt");
   else if (osCompile.out.indexOf(osType) >= 0)
-    result = await exec("cd controller/Code  && ./cpp.out < input.txt");
+    result = await exec("cd controller/Codes  && ./cpp.out < input.txt");
   const endTime = new Date();
 
   const runTime = endTime.getTime() - startTime.getTime();
   result.manualrunTime = runTime;
+  console.log("I am in cpp", result);
   return result;
 };
 
-const runJs = (filename) => {
-  exec("node ", (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-      return;
+const runJs = async (filepath) => {
+  console.log("hello");
+  exec(
+    "node " + `${filepath}` + " < controller/Codes/input.txt",
+    (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(stdout);
+      return stdout;
     }
-    console.log(stdout);
-  });
+  );
 };
 
 module.exports = { runCpp, runJava, runJs };
