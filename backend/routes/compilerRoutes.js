@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { generateFile } = require("../controller/generateFile");
+const { generateFile } = require("../controllers/generateFile");
 
 const { errorToJSON, exec } = require("../routes/global");
-const { runJava, runCpp, runJs } = require("../controller/compiler");
+const { runJava, runCpp, runJs } = require("../controllers/compiler");
 
 const fs = require("fs");
 const { resolveObjectURL } = require("buffer");

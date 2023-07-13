@@ -7,7 +7,7 @@ import axios from "axios";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/navbar";
 import TypographyHeadings from "./components/ProblemDesc/TypographyHeadings";
-
+import Submit from "./page/Submit";
 function App() {
   const [user, setUser] = useState(null);
   const getUser = async () => {
@@ -35,7 +35,7 @@ function App() {
         <Register onFormSwitch={toggleForm} />
       )} */}
       <Routes>
-        <Route exact path="/problem" element={<TypographyHeadings />} />
+        <Route exact path="/problem" element={<Submit />} />
         <Route
           exact
           path="/homepage"
