@@ -1,63 +1,136 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import { Login } from "./components/Auth/login";
-import { Register } from "./components/Auth/register";
-import Home from "./Home";
-import axios from "axios";
+import React, { Suspense, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar/navbar";
-import TypographyHeadings from "./components/ProblemDesc/TypographyHeadings";
-import Submit from "./page/Submit";
-function App() {
-  const [user, setUser] = useState(null);
-  const getUser = async () => {
-    try {
-      const url = `${process.env.REACT_APP_API_URL}/api/oj/login/success`;
-      const { data } = await axios.get(url, { withCredentials: true });
-      setUser(data.user._json);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  const [currform, setCurrFrom] = useState("login");
-  const toggleForm = (formname) => {
-    setCurrFrom(formname);
-  };
+
+import classes from "./App.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AppBackground from "./pages/Home/App";
+import NavBar from "./compenents/NavBar/NavBar";
+import ScrollToTop from "./compenents/ScrollToTop/ScrollToTop";
+import LoadingSpinner from "./compenents/LoadingSpinner/LoadingSpinner";
+
+import { useSelector, useDispatch } from "react-redux";
+import { fetchQuestionListData } from "./store/Questions/questions-actions";
+import { getLoggedIn } from "./store/Auth/auth-actions";
+import Message from "./compenents/Message/Message";
+
+import { messageActions } from "./store/Message/message-slice";
+import FooterFAB from "./compenents/FooterFAB/FooterFAB";
+import Home from "./pages/Home/Home";
+// const Home = React.lazy(() => import('./pages/Home/Home'));
+const QuestionList = React.lazy(() =>
+  import("./pages/QuestionList/QuestionList")
+);
+
+const Question = React.lazy(() => import("./pages/Question/Question"));
+const LeaderBoard = React.lazy(() => import("./pages/LeaderBoard/LeaderBoard"));
+const Codes = React.lazy(() => import("./pages/Codes/Codes"));
+const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"));
+const DashBoard = React.lazy(() => import("./pages/DashBoard/DashBoard"));
+const Account = React.lazy(() => import("./pages/Account/Account"));
+
+const Customform = React.lazy(() =>
+  import("./compenents/Customform/Customform")
+);
+
+export const LOGIN = "login",
+  REGISTER = "register",
+  CHANGEPASSWORD = "changePassword";
+
+export const errorFormatter = (err) => {
+  let errorString = `${JSON.stringify(err)} \n`;
+  err.status && (errorString += `status: ${err.status} \n`);
+  err.statusText && (errorString += `statusText: ${err.statusText} \n`);
+  err.type && (errorString += `type: ${err.type} \n`);
+  err.redirected && (errorString += `redirected: ${err.redirected} \n`);
+  err.ok && (errorString += `ok: ${err.ok} \n`);
+  err.headers && (errorString += `headers: ${JSON.stringify(err.headers)} \n`);
+  err.body && (errorString += `body: ${JSON.stringify(err.body)} \n`);
+  return (
+    <div style={{ display: "inline", whiteSpace: "pre" }}>{errorString}</div>
+  );
+};
+
+const App = () => {
+  const dispatch = useDispatch();
+  const loginState = useSelector((state) => state.auth);
+
   useEffect(() => {
-    getUser();
-  }, []);
+    dispatch(getLoggedIn());
+    dispatch(fetchQuestionListData());
+    dispatch(
+      messageActions.set({
+        type: "info",
+        message: "Welcome to website !",
+        description:
+          "This website is to solve coding questions and check against testcases",
+      })
+    );
+  }, [dispatch]);
 
   return (
-    <div className="App">
-      {/* {currform === "login" ? (
-        <Login onFormSwitch={toggleForm} />
-      ) : (
-        <Register onFormSwitch={toggleForm} />
-      )} */}
-      <Routes>
-        <Route exact path="/problem" element={<Submit />} />
-        <Route
-          exact
-          path="/homepage"
-          element={user ? <Navbar user={user} /> : <Navigate to="/login" />}
-        />
-        <Route
-          exact
-          path="/"
-          element={user ? <Navbar user={user} /> : <Navigate to="/login" />}
-        />
-        <Route
-          exact
-          path="/login"
-          element={user ? <Navigate to="/" /> : <Login />}
-        />
-        <Route
-          path="/register"
-          element={user ? <Navigate to="/" /> : <Register />}
-        />
-      </Routes>
+    <div className={classes.App}>
+      <NavBar />
+      <Message />
+      <ScrollToTop />
+      <div className={classes.routes}>
+        <Suspense
+          fallback={
+            <div className="centered">
+              <LoadingSpinner />
+            </div>
+          }
+        >
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/questions" element={<QuestionList />} />
+            <Route exact path="/questions/:id" element={<Question />} />
+            <Route exact path="/leaderboard" element={<LeaderBoard />} />
+            <Route exact path="/codes/:id" element={<Codes />} />
+            <Route
+              exact
+              path="/login"
+              element={
+                !loginState.loggedIn ? (
+                  <Customform pageType={LOGIN} />
+                ) : (
+                  <Navigate replace to="/questions" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/register"
+              element={
+                !loginState.loggedIn ? (
+                  <Customform pageType={REGISTER} />
+                ) : (
+                  <Navigate replace to="/questions" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/changePassword"
+              element={<Customform pageType={CHANGEPASSWORD} />}
+            />
+            <Route
+              exact
+              path="/dashboard"
+              element={
+                loginState.loggedIn ? (
+                  <DashBoard />
+                ) : (
+                  <Navigate replace to="/questions" />
+                )
+              }
+            />
+            <Route exact path="/account" element={<Account />} />
+            <Route exact path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

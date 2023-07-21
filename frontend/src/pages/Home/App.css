@@ -1,0 +1,55 @@
+.img {
+  margin-left: 2px;
+  height: 50px;
+  width: 50px;
+  margin-right: 2px;
+  margin-bottom: 18px;
+}
+.app {
+  color: #353c4e;
+  background: #f0f2f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.header {
+  background: white;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header > div > img {
+  height: 1.75rem;
+}
+
+.header > div > span {
+  vertical-align: super;
+  padding-left: 0.5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding-top: 2rem;
+}
+
+.content > img {
+  height: 45vh;
+}
+
+.content > p {
+  font-size: 2rem;
+}
+
+.footer {
+  margin-bottom: 10vh;
+  text-align: center;
+}

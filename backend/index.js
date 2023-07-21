@@ -1,5 +1,6 @@
 const { dateTimeNowFormated, logger } = require("./utils");
 
+const  Model = require( "./DataBase/Model/Question");
 // If not in production
 if (
   process.env.NODE_ENV !== "production" ||
@@ -50,18 +51,29 @@ Socket.registerSocketServer(server);
 const data = [
   {
     difficulty: "easy",
-    name: "Utkarsh",
-    description: "Hello",
+    name: "3. Longest Substring Without Repeating Characters",
+    description: `Given a string s, find the length of the longest substring without repeating characters.`,
     examples: [
       {
-        input: "4",
-        output: "10",
-        explaination: "This is a explantation",
+        input: `s = "abcabcbb"`,
+        output: `3`,
+        explaination: "The answer is `abc`, with the length of 3.",
+      },
+     {
+        input: `s = "bbbbb"`,
+        output: `1`,
+        explaination: "The answer is `b`, with the length of 1.",
+      },
+    {
+        input: `s = "pwwkew"`,
+        output: `3`,
+        explaination: `The answer is "wke", with the length of 3.
+        Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.`,
       },
     ],
     noOfSubm: 4,
     noOfSuccess: 3,
-    testcase: "334",
+    testcase: "Q3",
   },
 ];
 // Model.insertMany(data)

@@ -63,11 +63,6 @@ const loginValidator = async (req, res, next) => {
   }
 };
 
-/**
- * @param {Object} req
- * @param {Object} req.body
- * @param {String} req.body.username
- */
 const registerValidator = async (req, res, next) => {
   let { name, username, email, password, passwordVerify } = req.body;
 
