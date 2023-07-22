@@ -24,7 +24,7 @@ const authSlice = createSlice({
                 state.email = action.payload.email;
                 state.username = action.payload.username;
                 state.solvedQuestions = action.payload.solvedQuestions;
-                state.isAdmin = (action.payload.username === 'aman'); // update the logic 
+                state.isAdmin = (action.payload.username === 'utkarsh'); // update the logic 
                 state.isGuest = (action.payload.username === 'guest'); // update the logic 
             } else {
                 state.name = undefined;

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+const findOrCreate = require("mongoose-findorcreate");
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -28,4 +29,5 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
+UserSchema.plugin(findOrCreate);
 module.exports = mongoose.model('User', UserSchema);

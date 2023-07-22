@@ -1338,3 +1338,241 @@ MongoNetworkTimeoutError: connection timed out
   connectionGeneration: 0,
   [Symbol(errorLabels)]: Set(0) {}
 }
+Oh no MONGOOSE Error !!! 7/22/2023, 1:27:57 AM
+MongoNetworkTimeoutError: connection timed out
+    at connectionFailureError (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/cmap/connect.js:372:20)
+    at TLSSocket.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/cmap/connect.js:293:22)
+    at Object.onceWrapper (node:events:626:28)
+    at TLSSocket.emit (node:events:512:28)
+    at Socket._onTimeout (node:net:586:8)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  connectionGeneration: 0,
+  [Symbol(errorLabels)]: Set(0) {}
+}
+MongooseError: Operation `questions.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) 7/22/2023, 1:28:00 AM
+MongooseError: Operation `questions.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) 7/22/2023, 1:35:25 AM
+Oh no MONGOOSE Error !!! 7/22/2023, 1:36:01 AM
+MongooseServerSelectionError: Server selection timed out after 30000 ms
+    at _handleConnectionErrors (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:792:11)
+    at NativeConnection.openUri (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:767:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-gzhum1j-shard-00-02.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-01.ijjymt7.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-2e3joi-shard-0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: 30
+  },
+  code: undefined
+}
+MongooseError: Operation `questions.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) 7/22/2023, 1:47:41 AM
+Oh no MONGOOSE Error !!! 7/22/2023, 1:47:45 AM
+MongooseServerSelectionError: Server selection timed out after 30000 ms
+    at _handleConnectionErrors (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:792:11)
+    at NativeConnection.openUri (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:767:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-01.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-02.ijjymt7.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-2e3joi-shard-0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: 30
+  },
+  code: undefined
+}
+Oh no MONGOOSE Error !!! 7/22/2023, 1:49:19 AM
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:792:11)
+    at NativeConnection.openUri (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:767:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-gzhum1j-shard-00-01.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-02.ijjymt7.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-2e3joi-shard-0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined
+}
+MongooseError: Operation `queries.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) 7/22/2023, 1:49:25 AM
+Oh no MONGOOSE Error !!! 7/22/2023, 2:03:24 AM
+MongoNetworkTimeoutError: connection timed out
+    at connectionFailureError (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/cmap/connect.js:372:20)
+    at TLSSocket.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/cmap/connect.js:293:22)
+    at Object.onceWrapper (node:events:626:28)
+    at TLSSocket.emit (node:events:512:28)
+    at Socket._onTimeout (node:net:586:8)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  connectionGeneration: 0,
+  [Symbol(errorLabels)]: Set(0) {}
+}
+Oh no MONGOOSE Error !!! 7/22/2023, 2:04:21 AM
+MongooseServerSelectionError: Server selection timed out after 30000 ms
+    at _handleConnectionErrors (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:792:11)
+    at NativeConnection.openUri (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:767:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-gzhum1j-shard-00-01.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-02.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-2e3joi-shard-0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: 30
+  },
+  code: undefined
+}
+MongooseError: Operation `questions.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) 7/22/2023, 2:04:44 AM
+Oh no MONGOOSE Error !!! 7/22/2023, 2:04:54 AM
+MongooseServerSelectionError: Server selection timed out after 30000 ms
+    at _handleConnectionErrors (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:792:11)
+    at NativeConnection.openUri (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/connection.js:767:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-gzhum1j-shard-00-01.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-02.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-2e3joi-shard-0',
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: 30
+  },
+  code: undefined
+}
+MongooseError: Operation `queries.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) 7/22/2023, 2:04:58 AM
+Oh no MONGOOSE Error !!! 7/22/2023, 2:30:20 AM
+MongoNetworkTimeoutError: connection timed out
+    at connectionFailureError (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/cmap/connect.js:372:20)
+    at TLSSocket.<anonymous> (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/cmap/connect.js:293:22)
+    at Object.onceWrapper (node:events:626:28)
+    at TLSSocket.emit (node:events:512:28)
+    at Socket._onTimeout (node:net:586:8)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  connectionGeneration: 0,
+  [Symbol(errorLabels)]: Set(0) {}
+}
+TypeError: Cannot read properties of null (reading 'name')
+    at loggedInController (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/controllers/user.js:98:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 7/22/2023, 11:38:18 AM
+MongoServerSelectionError: getaddrinfo ENOTFOUND ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net
+    at Timeout._onTimeout (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/mongodb/lib/sdam/topology.js:278:38)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-gzhum1j-shard-00-00.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-01.ijjymt7.mongodb.net:27017' => [ServerDescription],
+      'ac-gzhum1j-shard-00-02.ijjymt7.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-2e3joi-shard-0',
+    maxElectionId: new ObjectId("7fffffff0000000000000258"),
+    maxSetVersion: 8,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [Symbol(errorLabels)]: Set(0) {}
+} 7/22/2023, 11:56:20 AM
+TypeError: Cannot read properties of null (reading 'name')
+    at loggedInController (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/controllers/user.js:98:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 7/22/2023, 12:15:39 PM
+TypeError: Cannot read properties of null (reading 'name')
+    at loggedInController (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/controllers/user.js:97:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 7/22/2023, 12:35:51 PM
+TypeError: Cannot read properties of null (reading 'name')
+    at loggedInController (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/controllers/user.js:97:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 7/22/2023, 12:37:43 PM
+JsonWebTokenError: jwt must be a string
+    at module.exports [as verify] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/jsonwebtoken/verify.js:57:17)
+    at loggedInController (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/controllers/user.js:91:26)
+    at Layer.handle [as handle_request] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/route.js:144:13)
+    at loggingMiddleware (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/middlewares.js:169:3)
+    at Layer.handle [as handle_request] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/index.js:284:15 7/22/2023, 12:46:27 PM
+JsonWebTokenError: jwt must be a string
+    at module.exports [as verify] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/jsonwebtoken/verify.js:57:17)
+    at loggedInController (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/controllers/user.js:91:26)
+    at Layer.handle [as handle_request] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/route.js:144:13)
+    at loggingMiddleware (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/middlewares.js:169:3)
+    at Layer.handle [as handle_request] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/utkarshy/Documents/Online-Judge/OnlineJudge/backend/node_modules/express/lib/router/index.js:284:15 7/22/2023, 12:46:45 PM

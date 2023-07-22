@@ -2,11 +2,13 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./Customform.module.css";
+import logo from "../../images/googlelogo.png"
 import useInput from "../../hooks/use-input";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { changePassword, login, register } from "../../store/Auth/auth-actions";
 import { authActions } from "../../store/Auth/auth-slice";
+import "../../components/Auth/Auth-style.css"
 import {
   FilledInput,
   FormControl,
@@ -110,7 +112,7 @@ const Customform = (props) => {
     "Verify Password is necessary and should be same as Password";
 
   // username, email
-  const [emailUnameSelection, setEUSelection] = useState("username");
+  const [emailUnameSelection, setEUSelection] = useState("email");
 
   useEffect(() => {
     resetName();
@@ -195,7 +197,9 @@ const Customform = (props) => {
     resetPassVer();
     resetOldPass();
   };
-
+  const googleAuth = async () => {
+    window.open("http://localhost:5000/api/oj/google", "_self");
+  };
   return (
     <Fragment>
       <div className={classes.bgImg}>
@@ -240,7 +244,9 @@ const Customform = (props) => {
                   <TextField
                     id="name"
                     type="text"
-                    label="Name3"
+                    label="Name"
+
+                    className={classes.formgroup}
                     variant="filled"
                     placeholder="Less than 10 characters"
                     onChange={nameChangeHandler}
@@ -261,7 +267,7 @@ const Customform = (props) => {
               </div>
             )}
 
-            {pageType === LOGIN && (
+            {/* {pageType === LOGIN && (
               <FormControl
                 sx={{
                   borderTop: "2px solid rgb(0,0,0,0.08)",
@@ -292,7 +298,7 @@ const Customform = (props) => {
                   />
                 </RadioGroup>
               </FormControl>
-            )}
+            )} */}
 
             {(pageType === REGISTER ||
               pageType === CHANGEPASSWORD ||
@@ -310,6 +316,7 @@ const Customform = (props) => {
                     type="text"
                     label="Username"
                     variant="filled"
+                    className={classes.formgroup}
                     placeholder="4 <= username < 10"
                     onChange={usernameChangeHandler}
                     onBlur={usernameBlurHandler}
@@ -317,7 +324,7 @@ const Customform = (props) => {
                     sx={
                       hasUsernameError
                         ? {
-                            backgroundColor: "#fddddd",
+                            backgroundColor: "#efeeee",
                           }
                         : {}
                     }
@@ -345,6 +352,8 @@ const Customform = (props) => {
                     type="email"
                     label="Email"
                     placeholder="Enter valid Email"
+
+                    className={classes.formgroup}
                     variant="filled"
                     onBlur={emailBlurHandler}
                     onChange={emailChangeHandler}
@@ -374,6 +383,7 @@ const Customform = (props) => {
                 hasError={hasOldPassError}
                 id="oldPassword"
                 value={oldPassword}
+                    className={classes.formgroup}
                 changeHandler={oldPassChangeHandler}
                 blurHandler={oldPassBlurHandler}
                 label="Old Password"
@@ -396,6 +406,7 @@ const Customform = (props) => {
               tooltipPlacement={tooltipPlacement}
               errorMsg={passErrorMsg}
               hasError={hasPassError}
+              className={classes.formgroup}
               id="password"
               value={password}
               changeHandler={passChangeHandler}
@@ -451,13 +462,19 @@ const Customform = (props) => {
                   fontSize: "1rem",
                 }}
               >
+
                 {pageType}
                 {loginState &&
                   (loginState.isLoading || loginState.loggedIn) && (
                     <div className="spin" />
                   )}
               </Button>
+ <div onClick={googleAuth} className={classes.submitbtn2} type="submit">
+        <img className="googleimg" src={logo} alt="google icon"></img>
+        Google
+      </div>
             </div>
+
 
             {loginState && loginState.error && (
               <div className={classes.errormsg}>{loginState.error}</div>
@@ -513,12 +530,16 @@ const CustomPasswordInput = ({
         title={errorMsg}
         open={!isMobile && hasError}
       >
-        <FormControl sx={{ width: "25ch" }} variant="filled">
+        <FormControl sx={{ width: "25ch" }} variant="filled"
+
+              className={classes.formgroup}
+         >
           <InputLabel htmlFor={id}>{label}</InputLabel>
           <FilledInput
             id={id}
             type={showPassword ? "text" : "password"}
             value={value}
+              className={classes.formgroup}
             onChange={changeHandler}
             onBlur={blurHandler}
             placeholder={placeholder}

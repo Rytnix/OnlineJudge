@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
+const jwt = require("jsonwebtoken");
 require("../controllers/auth");
 router.get("/login/success", (req, res) => {
   if (req.user) {
@@ -28,9 +29,19 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:3000",
     failureRedirect: "/login/failed",
-  })
+  }), (req,res) =>{
+    const user = req.user;
+   console.log("token",user)
+    res
+      .cookie("token", user, {
+        httpOnly: true,
+        // secure: true,
+        // sameSite: "none",
+      })
+      .status(200)
+      .redirect(process.env.CLIENT_URL);
+  }
 );
 
 router.get("/logout", (req, res) => {

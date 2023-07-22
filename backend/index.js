@@ -10,7 +10,7 @@ if (
 }
 logger.log(`In ${process.env.NODE_ENV} env !`);
 console.log("process", process.env.DB_URL);
-
+const userRoute = require("./routes/userRouter")
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -86,7 +86,7 @@ const data = [
 
 // api route to get questions and verdicts
 app.use("/api/explore", explore);
-
+app.use("/api/oj", userRoute);
 app.use("/api/user", user);
 
 // app.use(express.static(path.join(__dirname, "client/build")));

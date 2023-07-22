@@ -6,7 +6,6 @@ const { User } = require("../DataBase/database");
 const loginController = async (req, res) => {
   try {
     // sign the token
-
     const token = jwt.sign(
       {
         user: req.existingUser._id,
@@ -15,6 +14,7 @@ const loginController = async (req, res) => {
       process.env.JWT_SECRET
     );
 
+    
     // send the token in a HTTP-only cookie
     res
       .cookie("token", token, {
@@ -88,9 +88,7 @@ const loggedInController = async (req, res) => {
 
     const token = req.cookies.token;
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-
     const user = await User.getUserById(verified.user);
-
     res.status(200).json({
       status: true,
       name: user.name,

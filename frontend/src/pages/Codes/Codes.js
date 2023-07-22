@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-
+import OptionFAB from '../../compenents/FooterFAB/OptionFAB';
 import { messageActions } from '../../store/Message/message-slice';
 import CodeEditorv3 from '../Question/Editor/CodeEditorv3';
 import ButtonCustom from '../../compenents/Button/Button';
@@ -57,7 +57,7 @@ const Codes = () => {
                             <div className={classes.codeSnippet}>
                                 &#60; go back to leaderboard /&#62;
                             </div>
-                            <ButtonCustom to='/leaderboard' color='yellow'>
+                            <ButtonCustom to='/leaderboard' color='blue'>
                                 <ArrowBack style={{ marginRight: '0.3em', transform: 'translateX(-12px)', fontSize: '1.2em' }} />
                                 Back
                             </ButtonCustom>
@@ -72,7 +72,7 @@ const Codes = () => {
                                 </IconButton>
                             </Tooltip>
                         </div>
-                        <Options
+                        {/* <OptionFAB
                             favStyle={{
                                 zIndex: '899',
                                 position: 'relative',
@@ -81,7 +81,7 @@ const Codes = () => {
                             }}
                             codeFontSize={codeFontSize}
                             setcodeFontSize={setcodeFontSize}
-                        />
+                        /> */}
                         <CodeEditorv3
                             code={response.code}
                             setCode={null}

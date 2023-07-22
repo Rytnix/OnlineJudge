@@ -7,6 +7,7 @@
   background-image: linear-gradient(59deg, #ffe031, #f04579, #ebf6ff);
 }
 
+
 .auth-form-container,
 .loginform,
 .registerform {
@@ -27,8 +28,7 @@ input {
 }
 
 button {
-  border: none;
-  background-color: white;
+  background-color:#F9FBE7 ;
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
